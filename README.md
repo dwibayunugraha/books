@@ -55,3 +55,45 @@ setState(() {
 #### Demo
 
 ![Capture no 3](/images/captureno3.gif)
+
+### Soal no 4
+
+#### Langkah 1
+```dart
+Future<int> returnOneAsync() async {
+  await Future.delayed(const Duration(seconds: 3));
+  return 1;
+}
+
+Future<int> returnTwoAsync() async {
+  await Future.delayed(const Duration(seconds: 3));
+  return 2;
+}
+
+Future<int> returnThreeAsync() async {
+  await Future.delayed(const Duration(seconds: 3));
+  return 3;
+}
+```
+
+#### Langkah 2
+```dart
+Future count() async {
+  int total = 0;
+  total += await returnOneAsync();
+  total += await returnTwoAsync();
+  total += await returnThreeAsync();
+  setState(() {
+    result = total.toString();
+  });
+}
+```
+
+#### Penjelasan:
+- **Fungsi returnOneAsync()**: untuk mengembalikan nilai 1 setelah 3 detik
+- **Fungsi returnTwoAsync()**: untuk mengembalikan nilai 2 setelah 3 detik
+- **Fungsi returnThreeAsync()**: untuk mengembalikan nilai 3 setelah 3 detik
+- **Future count() async**: Fungsi count() untuk menjumlahkan nilai yang dikembalikan oleh fungsi returnOneAsync(), returnTwoAsync(), dan returnThreeAsync(). Menggunakan setState() untuk memperbarui UI dengan hasil total
+Hasil akhir dikonversi ke string dan disimpan dalam variabel result
+
+![Capture no 4](/images/captureno4.gif)
