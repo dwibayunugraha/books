@@ -123,3 +123,48 @@ Setelah delay, menyelesaikan Completer dengan nilai 42
 
 #### Demo
 ![Capture no 5](/images/captureno5.gif)
+### Soal No 6
+
+#### Langkah 5-6
+
+```dart
+calculate() async {
+  try {
+    await Future.delayed(const Duration(seconds: 5));
+    completer.complete(42);
+  } catch (_) {
+    completer.completeError({});
+  }
+}
+
+getNumber().then((value) {
+  setState(() {
+    result = value.toString();
+  });
+}).catchError((e) {
+  result = 'An error occurred';
+});
+```
+
+#### Penjelasan:
+
+- **Perbedaan**:
+
+1. Penanganan Error
+
+- Sebelumnya: Tidak ada penanganan error secara eksplisit
+- Sekarang: Menggunakan try-catch untuk menangkap error yang mungkin terjadi
+
+2. Complete Error
+
+- Sebelumnya: Hanya bisa complete dengan nilai sukses (42)
+- Sekarang: Bisa complete dengan:
+  - Sukses: completer.complete(42)
+  - Error: completer.completeError({})
+- **Fungsi getNumber()**: 
+- Dapat menangkap error yang di-propagate dari calculate()
+- Menampilkan pesan error ke UI jika terjadi kesalahan
+
+#### Demo
+
+![Capture no 6](/images/capture20no206.gif)
