@@ -167,4 +167,10 @@ getNumber().then((value) {
 
 #### Demo
 
-![Capture no 6](/images/capture20no206.gif)
+![Capture no 6](/images/captureno6.gif)
+
+### Soal No 7
+
+#### Demo
+
+![Capture no 7](/images/capture%20no%207.gif)
