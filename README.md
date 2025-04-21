@@ -231,3 +231,51 @@ getNumber().then((value) {
 
 #### Demo
 ![Capture no 9](/images/capture%20no%209.gif)
+
+### Soal No 10
+ 
+ #### Hasil Running
+ 
+ - Ketika tombol "Go" ditekan:
+ 
+ 1. Akan menunggu 2 detik (delay)
+ 2. Menampilkan pesan error: "Exception: Something terrible happened!"
+ 3. Mencetak "Complete" di console
+ 
+ #### Perbedaan Langkah 1 dan 4
+ 
+ **Langkah 1: returnError()**
+ 
+ ```dart
+ Future returnError() async {
+     await Future.delayed(const Duration(seconds: 2));
+     throw Exception('Something terrible happened !');
+ }
+ ```
+ 
+ - Hanya membuat Future yang akan throw Exception
+ - Tidak ada penanganan error
+ - Akan crash aplikasi jika tidak ditangkap
+ 
+ **Langkah 4: handleError()**
+ 
+ ```dart
+ Future handleError() async {
+     try {
+       await returnError();
+     } catch (error) {
+       setState(() {
+         result = error.toString();
+       });
+     } finally {
+       print('Complete');
+     }
+ }
+ ```
+ 
+ - Menangkap error dari returnError() menggunakan try-catch
+ - Menampilkan pesan error ke UI menggunakan setState
+ - Memiliki block finally yang akan selalu dieksekusi
+ - Mencegah aplikasi crash dengan penanganan error yang tepat
+
+ 
