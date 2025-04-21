@@ -33,12 +33,12 @@ class FuturePage extends StatefulWidget {
 class _FuturePageState extends State<FuturePage> {
   String result = '';
 
-// https://www.google.co.id/books/edition/SpiderMan/RYI0DwAAQBAJ?hl=id&gbpv=1&dq=spiderman&pg=PT3&printsec=frontcover
+  // https://www.google.co.id/books/edition/Batman_and_Philosophy/hf5f3r38P1cC
 
-// Fungsi getData() untuk mengambil data dari API Google Books
+  // Fungsi getData() untuk mengambil data dari API Google Books
   Future<Response> getData() async {
     const authority = 'www.googleapis.com';
-    const path = '/books/v1/volumes/RYI0DwAAQBAJ';
+    const path = '/books/v1/volumes/hf5f3r38P1cC';
     Uri uri = Uri.https(authority, path);
     return http.get(uri);
   }
@@ -46,25 +46,39 @@ class _FuturePageState extends State<FuturePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Back from the Future'),
-        ),
-        body: Center(
-            child: Column(
+      appBar: AppBar(title: const Text('Back from the Future')),
+      body: Center(
+        child: Column(
           children: [
             Spacer(),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  getData()
+                      .then((value) {
+                        // Mengambil data dari API Google Books
+                        result = value.body.toString().substring(
+                          0,
+                          450,
+                        ); // Menampilkan 450 karakter pertama
+                        setState(() {});
+                      })
+                      .catchError((_) {
+                        result = 'An error occurred';
+                        setState(() {});
+                      });
+                });
+              },
               child: const Text('Go'),
             ),
             Spacer(),
-            Text(
-              result,
-            ),
+            Text(result),
             Spacer(),
             CircularProgressIndicator(),
             Spacer(),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
