@@ -226,4 +226,8 @@ getNumber().then((value) {
  
  - FutureGroup: Cocok untuk skenario dinamis
  - Future.wait: Cocok untuk skenario statis
- 
+
+ ### Soal No 9
+
+#### Demo
+![Capture no 9](/images/capture%20no%209.gif)
