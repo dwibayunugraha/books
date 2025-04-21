@@ -278,4 +278,44 @@ getNumber().then((value) {
  - Memiliki block finally yang akan selalu dieksekusi
  - Mencegah aplikasi crash dengan penanganan error yang tepat
 
+ ### Soal No 11
  
+ ```dart
+  @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+       appBar: AppBar(
+         title: const Text('Current Location Bayu'),
+       ),
+       body: Center(
+         child: Text(myPosition),
+       ),
+     );
+   }
+ ```
+ 
+ Menambahkan nama panggilan tiap properti title sebagai identitas pekerjaan.
+
+ ### Soal No 12
+ 
+ ```dart
+ // Menambahkan delay 3 detik untuk loading
+     await Future.delayed(const Duration(seconds: 3));
+ ```
+ 
+ - Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+ 
+ Ya, koordinat GPS didapatkan ketika menjalankan aplikasi di browser karena beberapa alasan:
+ 
+ 1. Package Geolocator Web Support
+ 
+ - Package geolocator sebenarnya memiliki dukungan web melalui plugin geolocator_web
+ - Plugin ini secara otomatis menggunakan HTML5 Geolocation API ketika dijalankan di browser
+ 
+ 2. Browser Permission
+ 
+ - Browser modern mendukung HTML5 Geolocation API
+ - Saat aplikasi meminta akses lokasi, browser akan menampilkan prompt permission ke pengguna
+ - Jika user mengizinkan, koordinat GPS bisa didapatkan
+ 
+ ![Capture no 12](/images/capture%20no%2012.gif)
