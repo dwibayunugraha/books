@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,6 +75,21 @@ class _FuturePageState extends State<FuturePage> {
     });
   }
 
+  late Completer
+  completer; // membuat objek  future yang akan dikembalikan nanti late
+  // untuk mengembalikan nilai 42 setelah 5 detik
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  // untuk menghitung nilai 42
+  Future calculate() async {
+    await Future.delayed(const Duration(seconds: 5));
+    completer.complete(42);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +99,7 @@ class _FuturePageState extends State<FuturePage> {
           children: [
             Spacer(),
             ElevatedButton(
-              onPressed: () {
+               onPressed: () {
                 // setState(() {
                 //   getData().then((value) {
                 //     // Mengambil data dari API Google Books
@@ -94,7 +112,12 @@ class _FuturePageState extends State<FuturePage> {
                 //     setState(() {});
                 //   });
                 // });
-                count();
+                // count();
+                getNumber().then((value) {
+                  setState(() {
+                    result = value.toString();
+                  });
+                });
               },
               child: const Text('Go'),
             ),
