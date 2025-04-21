@@ -174,3 +174,56 @@ getNumber().then((value) {
 #### Demo
 
 ![Capture no 7](/images/capture%20no%207.gif)
+
+### Soal No 8
+ 
+ #### Perbedaan Langkah 1 & 4
+ 
+ ```dart
+ // Langkah 1
+ void returnFG() {
+     FutureGroup<int> futureGroup = FutureGroup<int>();
+     futureGroup.add(returnOneAsync());
+     futureGroup.add(returnTwoAsync());
+     futureGroup.add(returnThreeAsync());
+     futureGroup.close();
+     futureGroup.future.then((List<int> value) {
+       int total = 0;
+       for (var element in value) {
+         total += element;
+       }
+       setState(() {
+         result = total.toString();
+       });
+     });
+ }
+ 
+ // Langkah 4
+ final futures = Future.wait<int>([
+   returnOneAsync(),
+   returnTwoAsync(),
+   returnThreeAsync(),
+ ]);
+ 
+ 
+ ```
+ 
+ #### Penjelasan:
+ 
+ - **Perbedaan**:
+ 
+ 1. Fleksibilitas:
+ 
+ - FutureGroup: Bisa menambah Future secara dinamis
+ - Future.wait: Future harus ditentukan saat deklarasi
+ 
+ 2. Sintaks:
+ 
+ - FutureGroup: Perlu inisialisasi, penambahan, dan penutupan (close)
+ - Future.wait: Lebih ringkas dengan satu baris kode
+ 
+ 3. Use Case:
+ 
+ - FutureGroup: Cocok untuk skenario dinamis
+ - Future.wait: Cocok untuk skenario statis
+ 
