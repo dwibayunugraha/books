@@ -28,7 +28,7 @@ Widget build(BuildContext context) {
 Implementasi pencarian buku menggunakan Google Books API.
 [Lihat Contoh Buku Batman](https://www.google.co.id/books/edition/Batman_and_Philosophy/hf5f3r38P1cC)
 
-![Hasil Pencarian Buku](asssets/images/captureno2.png)
+![Hasil Pencarian Buku](assets/images/captureno2.png)
 
 ### Soal no 3
 
