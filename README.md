@@ -28,7 +28,7 @@ Widget build(BuildContext context) {
 Implementasi pencarian buku menggunakan Google Books API.
 [Lihat Contoh Buku Batman](https://www.google.co.id/books/edition/Batman_and_Philosophy/hf5f3r38P1cC)
 
-![Hasil Pencarian Buku](/images/captureno2.png)
+![Hasil Pencarian Buku](asssets/images/captureno2.png)
 
 ### Soal no 3
 
@@ -54,7 +54,7 @@ setState(() {
 
 #### Demo
 
-![Capture no 3](/images/captureno3.gif)
+![Capture no 3](assets/images/captureno3.gif)
 
 ### Soal no 4
 
@@ -96,7 +96,7 @@ Future count() async {
 - **Future count() async**: Fungsi count() untuk menjumlahkan nilai yang dikembalikan oleh fungsi returnOneAsync(), returnTwoAsync(), dan returnThreeAsync(). Menggunakan setState() untuk memperbarui UI dengan hasil total
 Hasil akhir dikonversi ke string dan disimpan dalam variabel result
 
-![Capture no 4](/images/captureno4.gif)
+![Capture no 4](assets/images/captureno4.gif)
 ### Soal No 5
 
 #### Langkah 2
@@ -122,7 +122,7 @@ Future calculate() async {
 Setelah delay, menyelesaikan Completer dengan nilai 42
 
 #### Demo
-![Capture no 5](/images/captureno5.gif)
+![Capture no 5](assets/images/captureno5.gif)
 ### Soal No 6
 
 #### Langkah 5-6
@@ -167,13 +167,13 @@ getNumber().then((value) {
 
 #### Demo
 
-![Capture no 6](/images/captureno6.gif)
+![Capture no 6](assets/images/captureno6.gif)
 
 ### Soal No 7
 
 #### Demo
 
-![Capture no 7](/images/capture%20no%207.gif)
+![Capture no 7](assets/images/captureno7.gif)
 
 ### Soal No 8
  
@@ -230,7 +230,7 @@ getNumber().then((value) {
  ### Soal No 9
 
 #### Demo
-![Capture no 9](/images/capture%20no%209.gif)
+![Capture no 9](assets/images/captureno9.gif)
 
 ### Soal No 10
  
@@ -318,7 +318,7 @@ getNumber().then((value) {
  - Saat aplikasi meminta akses lokasi, browser akan menampilkan prompt permission ke pengguna
  - Jika user mengizinkan, koordinat GPS bisa didapatkan
  
- ![Capture no 12](/images/capture%20no%2012.gif)
+ ![Capture no 12](assets/images/captureno12.gif)
 
 ### Soal No 13
 
@@ -363,7 +363,7 @@ child: FutureBuilder(
 - Reactive terhadap perubahan Future
 #### Demo
 
-![Capture no 13](/images/capture%20no%2013.gif)
+![Capture no 13](assets/images/captureno13.gif)
 
 Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
 
@@ -394,7 +394,7 @@ Karena dengan FutureBuilder lebih baik karena lebih sesuai dengan pattern async 
  
  #### Demo
  
- ![Capture no 14](/images/capture%20no%2013gif)
+ ![Capture no 14](assets/images/captureno13gif)
 
  ### Soal No 15
 
@@ -484,7 +484,7 @@ Color color = Colors.greenAccent;
  
  #### Demo
  
- ![Capture no 16](/images/capture%20no%2016.gif)
+ ![Capture no 16](assets/images/captureno16.gif)
 
  ### Soal No 17
  
@@ -563,4 +563,4 @@ Color color = Colors.greenAccent;
  
  #### Demo
  
- ![Capture no 17](/images/capture%20no%2017.gif)
+ ![Capture no 17](assets/images/captureno17.gif)
