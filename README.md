@@ -395,3 +395,93 @@ Karena dengan FutureBuilder lebih baik karena lebih sesuai dengan pattern async 
  #### Demo
  
  ![Capture no 14](/images/capture%20no%2013gif)
+
+ ### Soal No 15
+
+Menambahkan nama panggilan Anda pada tiap properti title di class NavigationFirst sebagai identitas pekerjaan.
+
+```dart
+appBar: AppBar(
+        title: const Text('Current Location Bayu'),
+      ),
+
+```
+
+Menganti dengan warna tema favorit.
+
+```dart
+Color color = Colors.greenAccent;
+```
+
+### Soal No 16
+ 
+ Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+ Yang terjadi saat mengklik button:
+ 
+ 1. First Screen Button (Change Color)
+ 
+ - Saat diklik, navigasi ke halaman kedua
+ - Background screen pertama masih terlihat di belakang
+ - Menggunakan Navigator.push()
+ 
+ 2. Second Screen Buttons
+ 
+ - Setiap button warna ketika diklik akan:
+ - Mengubah warna background First Screen
+ - Menutup Second Screen
+ - Kembali ke First Screen dengan warna baru
+ 
+ Mengapa Demikian?
+ 
+ 1. Mekanisme Navigasi
+ 
+ ```dart
+ Future _navigateAndGetColor(BuildContext context) async {
+     color = await Navigator.push(
+           context,
+           MaterialPageRoute(builder: (context) => const NavigationSecond()),
+         ) ??
+         Colors.blue;
+     setState(() {});
+ }
+ ```
+ 
+ - Navigator.push() menambah route baru ke stack
+ - await menunggu nilai return dari Second Screen
+ - setState() memperbarui UI dengan warna baru
+ 
+ 2. Data Passing
+ 
+ - Warna dipilih di Second Screen
+ - Dikirim kembali ke First Screen menggunakan Navigator.pop(color)
+ - First Screen menerima dan mengupdate state
+ 
+ Ganti 3 warna pada langkah 5 dengan warna favorit
+ 
+ ```dart
+             ElevatedButton(
+               onPressed: () {
+                 color = Colors.lime;
+                 Navigator.pop(context, color);
+               },
+               child: const Text('Change to Lime'),
+             ),
+             ElevatedButton(
+               onPressed: () {
+                 color = Colors.deepOrange;
+                 Navigator.pop(context, color);
+               },
+               child: const Text('Change to Deep Orage'),
+             ),
+             ElevatedButton(
+               onPressed: () {
+                 color = Colors.pink;
+                 Navigator.pop(context, color);
+               },
+               child: const Text('Change to Pink'),
+             ),
+ ```
+ 
+ #### Demo
+ 
+ ![Capture no 16](/images/capture%20no%2016.gif)
