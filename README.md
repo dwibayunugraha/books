@@ -394,8 +394,7 @@ Karena dengan FutureBuilder lebih baik karena lebih sesuai dengan pattern async 
  
  #### Demo
  
- ![Capture no 14](assets/images/captureno13gif)
-
+ ![Capture no 14](assets/images/captureno13.gif)
  ### Soal No 15
 
 Menambahkan nama panggilan Anda pada tiap properti title di class NavigationFirst sebagai identitas pekerjaan.
